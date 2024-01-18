@@ -16,7 +16,6 @@ function preReqs(){
 }
 
 function terminalThemes(){
-
     #For getting Gogh themes
     echo "Intsall Gogh themes"
     sudo apt-get install dconf-cli uuid-runtime
