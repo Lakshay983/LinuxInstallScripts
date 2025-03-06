@@ -56,5 +56,9 @@
     format = "> "
 
   '';
-}
 
+  # Run install.sh to get the needed dependencies with sudo privileges
+  home.activation.installDependencies = pkgs.lib.mkAfter ''
+    usr/bin/sudo ${pkgs.bash}/bin/bash /home/lakshaygupta/LinuxInstallScripts/install.sh
+  '';
+}
