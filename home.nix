@@ -17,6 +17,10 @@
     starship   # Starship prompt package
     tmux
     docker
+    qemu
+    coreutils
+    binutils
+    gcc
   ];
 
   # Enable Zsh as the default shell for your session
@@ -33,6 +37,10 @@
     if command -v fastfetch &>/dev/null; then
       fastfetch
     fi
+
+    # Export environment variables
+    export PINTOS=/home/lakshaygupta/pintos-spring-2025-Lakshay983
+    export PATH=$PATH:$PINTOS/utils
   '';
 
   # Create the Starship configuration file at ~/.config/starship.toml
@@ -55,10 +63,5 @@
     [character]
     format = "> "
 
-  '';
-
-  # Run install.sh to get the needed dependencies with sudo privileges
-  home.activation.installDependencies = pkgs.lib.mkAfter ''
-    usr/bin/sudo ${pkgs.bash}/bin/bash /home/lakshaygupta/LinuxInstallScripts/install.sh
   '';
 }
